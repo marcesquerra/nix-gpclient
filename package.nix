@@ -35,6 +35,21 @@ let
       pkgs.zlib
     ];
   });
+  gpservice = (pkgs.buildFHSUserEnv {
+    name = "gpservice";
+    runScript = pkgs.writeShellScript "gpservice.sh" ''
+      if [ $PWD = "/build" ]
+      then
+        exit 0
+      fi
+      ${binary}/bin/gpservice "$@"
+    '';
+    targetPkgs = pkgs: [
+      pkgs.openconnect.dev
+      pkgs.glibc
+      pkgs.zlib
+    ];
+  });
   gpauth = (pkgs.buildFHSUserEnv {
     name = "gpauth";
     runScript = pkgs.writeShellScript "gpauth.sh" ''
@@ -57,5 +72,9 @@ let
       pkgs.gnome.libsoup
     ];
   });
+  ds-connect-me = pkgs.writeShellScriptBin "ds-connect-me" ''
+    PATH="${gpauth}/bin:${gpclient}/bin:${gpservice}/bin:$PATH"
+    sudo -E gpclient connect --hip --csd-wrapper $(which gohip) ds-connect-me.disney.com
+  '';
 in
-  {inherit gpclient gpauth;}
+  {inherit gpclient gpservice gpauth ds-connect-me;}
