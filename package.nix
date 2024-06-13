@@ -74,7 +74,7 @@ let
   });
   ds-connect-me = pkgs.writeShellScriptBin "ds-connect-me" ''
     PATH="${gpauth}/bin:${gpclient}/bin:${gpservice}/bin:$PATH"
-    sudo -E gpclient connect --hip --csd-wrapper $(which gohip) ds-connect-me.disney.com
+    sudo -E gpclient connect --hip --csd-wrapper $(which gohip) --default-browser ds-connect-me.disney.com
   '';
 in
   {inherit gpclient gpservice gpauth ds-connect-me;}
