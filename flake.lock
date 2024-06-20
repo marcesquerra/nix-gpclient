@@ -1,5 +1,27 @@
 {
   "nodes": {
+    "GlobalProtect-openconnect": {
+      "inputs": {
+        "advisory-db": "advisory-db",
+        "crane": "crane",
+        "fenix": "fenix",
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1718898960,
+        "narHash": "sha256-wfBuoa7rlSbqWUiUEBBFnql4v1gN9L0WdJrQTqqQUjk=",
+        "owner": "marcesquerra",
+        "repo": "GlobalProtect-openconnect",
+        "rev": "ead88a126c9dd51668fa084ab4f246f4e8a238e2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "marcesquerra",
+        "repo": "GlobalProtect-openconnect",
+        "type": "github"
+      }
+    },
     "advisory-db": {
       "flake": false,
       "locked": {
@@ -19,7 +41,7 @@
     "crane": {
       "inputs": {
         "nixpkgs": [
-          "gp",
+          "GlobalProtect-openconnect",
           "nixpkgs"
         ]
       },
@@ -40,11 +62,11 @@
     "fenix": {
       "inputs": {
         "nixpkgs": [
-          "gp",
+          "GlobalProtect-openconnect",
           "nixpkgs"
         ],
         "rust-analyzer-src": [
-          "gp"
+          "GlobalProtect-openconnect"
         ]
       },
       "locked": {
@@ -117,8 +139,8 @@
     },
     "gohip": {
       "inputs": {
-        "flake-utils": "flake-utils_2",
-        "nixpkgs": "nixpkgs"
+        "flake-utils": "flake-utils_3",
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1718876033,
@@ -135,45 +157,7 @@
         "type": "github"
       }
     },
-    "gp": {
-      "inputs": {
-        "advisory-db": "advisory-db",
-        "crane": "crane",
-        "fenix": "fenix",
-        "flake-utils": "flake-utils_3",
-        "nixpkgs": "nixpkgs_2"
-      },
-      "locked": {
-        "lastModified": 1718898960,
-        "narHash": "sha256-wfBuoa7rlSbqWUiUEBBFnql4v1gN9L0WdJrQTqqQUjk=",
-        "owner": "marcesquerra",
-        "repo": "GlobalProtect-openconnect",
-        "rev": "ead88a126c9dd51668fa084ab4f246f4e8a238e2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "marcesquerra",
-        "repo": "GlobalProtect-openconnect",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
-      "locked": {
-        "lastModified": 1717952948,
-        "narHash": "sha256-mJi4/gjiwQlSaxjA6AusXBN/6rQRaPCycR7bd8fydnQ=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "2819fffa7fa42156680f0d282c60d81e8fb185b7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixos-24.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
       "locked": {
         "lastModified": 1718717462,
         "narHash": "sha256-qddfQLMaWR2gxfEzUM/zFZVK6H1kTv9WBQSBQxbP3MU=",
@@ -189,13 +173,29 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_2": {
       "locked": {
-        "lastModified": 1718086528,
-        "narHash": "sha256-hoB7B7oPgypePz16cKWawPfhVvMSXj4G/qLsfFuhFjw=",
+        "lastModified": 1717952948,
+        "narHash": "sha256-mJi4/gjiwQlSaxjA6AusXBN/6rQRaPCycR7bd8fydnQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "47b604b07d1e8146d5398b42d3306fdebd343986",
+        "rev": "2819fffa7fa42156680f0d282c60d81e8fb185b7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-24.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1718717462,
+        "narHash": "sha256-qddfQLMaWR2gxfEzUM/zFZVK6H1kTv9WBQSBQxbP3MU=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "938aa157bbd6e3c6fd7dcb77998b1f92c2ad1631",
         "type": "github"
       },
       "original": {
@@ -207,9 +207,9 @@
     },
     "root": {
       "inputs": {
-        "flake-utils": "flake-utils",
+        "GlobalProtect-openconnect": "GlobalProtect-openconnect",
+        "flake-utils": "flake-utils_2",
         "gohip": "gohip",
-        "gp": "gp",
         "nixpkgs": "nixpkgs_3"
       }
     },

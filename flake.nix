@@ -3,9 +3,9 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     flake-utils.url = "github:numtide/flake-utils";
     gohip.url = "github:bechampion/gohip/v0.3.1";
-    gp.url = "github:marcesquerra/GlobalProtect-openconnect";
+    GlobalProtect-openconnect.url = "github:marcesquerra/GlobalProtect-openconnect";
   };
-  outputs = { self, nixpkgs, flake-utils, gohip, gp }:
+  outputs = { self, nixpkgs, flake-utils, gohip, GlobalProtect-openconnect }:
     flake-utils.lib.eachDefaultSystem
       (system:
         let
@@ -14,7 +14,7 @@
             inherit system overlays;
           };
 
-          generated-packages = (import ./package.nix) pkgs gohip gp;
+          generated-packages = (import ./package.nix) pkgs gohip GlobalProtect-openconnect;
 
         in
         with pkgs;
