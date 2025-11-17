@@ -19,7 +19,7 @@
         in
         with pkgs;
         {
-          devShells.default = (import ./shell.nix) pkgs;
+          devShells.default = (import ./shell.nix) pkgs generated-packages.ds-connect-me;
           apps = rec {
             ds-connect-me = flake-utils.lib.mkApp {
               drv = generated-packages.ds-connect-me;
