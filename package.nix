@@ -9,6 +9,7 @@ let
       GP_AUTH_BINARY="${gp.packages.x86_64-linux.gpauth}/bin/gpauth" \
       ${gp.packages.x86_64-linux.gpclient}/bin/gpclient --ignore-tls-errors \
         connect \
+        --os Windows \
         --script ${vpnc-script-wrapper}/bin/vpnc-script \
         --hip \
         --csd-wrapper "${gohip.packages.x86_64-linux.default}"/bin/gohip \
