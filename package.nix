@@ -12,7 +12,7 @@ let
         --script ${vpnc-script-wrapper}/bin/vpnc-script \
         --hip \
         --csd-wrapper "${gohip.packages.x86_64-linux.default}"/bin/gohip \
-        ds-connect-me.disney.com
+        global-connect-me.twdc.technology
   '';
 in
   {inherit ds-connect-me;}
