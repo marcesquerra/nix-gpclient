@@ -6,14 +6,21 @@ let
   '';
   ds-connect-me = pkgs.writeShellScriptBin "ds-connect-me" ''
     sudo -E \
-      GP_AUTH_BINARY="${gp.packages.x86_64-linux.gpauth}/bin/gpauth" \
-      ${gp.packages.x86_64-linux.gpclient}/bin/gpclient --ignore-tls-errors \
+      GP_AUTH_BINARY="${gp.packages.x86_64-linux.default}/bin/gpauth" \
+      ${gp.packages.x86_64-linux.default}/bin/gpclient  \
         connect \
-        --os Windows \
         --script ${vpnc-script-wrapper}/bin/vpnc-script \
-        --hip \
-        --csd-wrapper "${gohip.packages.x86_64-linux.default}"/bin/gohip \
+        --hip "${gohip.packages.x86_64-linux.default}"/bin/gohip \
         global-connect-me.twdc.technology
   '';
+  ds-connect-me-old = pkgs.writeShellScriptBin "ds-connect-me-old" ''
+    sudo -E \
+      ${gp.packages.x86_64-linux.default}/bin/gpclient  \
+        --fix-openssl \
+        connect \
+        --script ${vpnc-script-wrapper}/bin/vpnc-script \
+        --hip "${gohip.packages.x86_64-linux.default}"/bin/gohip \
+        ds-connect-me.disney.com
+  '';
 in
-  {inherit ds-connect-me;}
+  {inherit ds-connect-me ds-connect-me-old;}

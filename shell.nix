@@ -1,5 +1,5 @@
-pkgs : ds-connect-me : 
+pkgs : extra-packages : 
 
 pkgs.mkShell {
-  buildInputs = [ ds-connect-me ];
+  buildInputs = [ ] ++ extra-packages;
 }
